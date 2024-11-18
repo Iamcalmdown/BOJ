@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main  {
@@ -10,16 +9,25 @@ public class Main  {
         int N = Integer.parseInt(br.readLine());
         StringTokenizer st;
 
-        int [] x = new int[N];
-        int [] y = new int[N];
+        int minx = 10001;
+        int miny = 10001;
+        int maxx = -10001;
+        int maxy = -10001;
 
         for(int i=0; i<N;i++) {
             st = new StringTokenizer(br.readLine());
-            x[i] = Integer.parseInt(st.nextToken());
-            y[i] = Integer.parseInt(st.nextToken());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+
+            if (minx > x)
+                minx = x;
+            if (miny > y)
+                miny = y;
+            if( maxx< x)
+                maxx = x;
+            if(maxy < y)
+                maxy = y;
         }
-        Arrays.sort(x);
-        Arrays.sort(y);
-        System.out.println((x[N-1]-x[0])*(y[N-1]-y[0]));
+        System.out.println((maxx-minx)*(maxy-miny));
     }
 }
