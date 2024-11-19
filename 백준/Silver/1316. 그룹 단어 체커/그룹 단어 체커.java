@@ -4,36 +4,32 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-  public static void main(String[] args) throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    int T = Integer.parseInt(br.readLine());
-
-    int cnt = 0;
-    for (int i = 0; i < T; i++) {
-      if (checkStr(br.readLine())) {
-        cnt++;
-      }
-    }
-    System.out.println(cnt);
-  }
-
-  public static Boolean checkStr(String str) {
-    boolean[] b = new boolean[26]; // 그룹 문자 판별 알파벳 불리언 배열
-
-    int prev = -1; // 이전 문자의 인덱스를 저장.
-    for (int i = 0; i < str.length(); i++) {
-      int now = str.charAt(i);
-      if (prev != now) {
-        if (b[str.charAt(i) - 'a'] != true) {
-          b[str.charAt(i) - 'a'] = true;
-          prev = now;
-        } else {
-          return false; // 이미 나왔으니 false로 마감.
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        int cnt = 0;
+        for (int i = 0; i < N; i++) {
+            if (checkStr(br.readLine().toLowerCase())) {
+                cnt++;
+            }
         }
-
-      } else
-        continue;
+        System.out.println(cnt);
     }
-    return true;
-  }
+
+    public static Boolean checkStr(String str) {
+        boolean[] b = new boolean[26]; //알파벳 배열
+        int prev = -1;
+        for (int k = 0; k < str.length(); k++) {
+            int now = str.charAt(k);
+            if (prev != now) {
+                if (!b[now - 'a']) {
+                    b[now - 'a'] = true;
+                    prev = now;
+                } else {
+                    return false; // 이미 나왔으니 false 마감.
+                }
+            }
+        }
+        return true;
+    }
 }
