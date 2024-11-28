@@ -5,15 +5,16 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
         for (int i = 0; i < N; i++) {
             String[] str = br.readLine().split(" ");
-            for (int j = 0; j < str.length; j++) {
-                StringBuilder sb = new StringBuilder(str[j]);
-                System.out.print(sb.reverse() + " ");
+            for (String s : str) {
+                StringBuilder sb1 = new StringBuilder(s);
+                sb.append(sb1.reverse()).append(" ");
             }
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.println(sb);
     }
 }
