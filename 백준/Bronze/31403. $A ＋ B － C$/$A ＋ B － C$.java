@@ -7,10 +7,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String A = br.readLine();
         String B = br.readLine();
-        String C = br.readLine();
-        int i = Integer.parseInt(A) + Integer.parseInt(B) - Integer.parseInt(C);
+        int C = Integer.parseInt(br.readLine());
+        
+        int i = Integer.parseInt(A) + Integer.parseInt(B) - C;
         System.out.println(i);
-        int s = Integer.parseInt(A + B) - Integer.parseInt(C);
+        int s = Integer.parseInt(A + B) - C;
         System.out.println(s);
     }
 }
