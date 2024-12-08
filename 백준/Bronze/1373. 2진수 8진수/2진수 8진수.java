@@ -13,7 +13,6 @@ public class Main {
         } else if (str.length() % 3 == 2) {
             str = "0" + str;
         }
-
         for (int i = 0; i < str.length(); i += 3)
             sb.append(Integer.parseInt(str.substring(i, i + 3), 2));
         System.out.println(sb);
