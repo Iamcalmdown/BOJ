@@ -6,16 +6,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();
+        String[] eight = {"000", "001", "010", "011", "100", "101", "110", "111"};
         StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < str.length(); i++) {
-            String a = Integer.toString(str.charAt(i) - '0', 2);
-            if (a.length() == 2 && i != 0) {
-                a = "0" + a;
-            } else if (a.length() == 1 && i != 0) {
-                a = "00" + a;
-            }
-            sb.append(a);
+        sb.append(Integer.parseInt(eight[str.charAt(0) - '0']));
+        
+        for (int i = 1; i < str.length(); i++) {
+            sb.append(eight[str.charAt(i) - '0']);
         }
         System.out.println(sb);
     }
