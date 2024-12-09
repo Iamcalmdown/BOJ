@@ -16,14 +16,13 @@ public class Main {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        int min = Integer.MAX_VALUE;
+
         int res = 0, sum;
         for (int j = 0; j < N; j++) {
             for (int k = j + 1; k < N; k++) {
                 for (int i = k + 1; i < N; i++) {
                     sum = arr[j] + arr[k] + arr[i];
-                    if (sum <= M && M - sum < min) {
-                        min = M - sum;
+                    if (sum <= M && res < sum) {
                         res = sum;
                     }
                 }
