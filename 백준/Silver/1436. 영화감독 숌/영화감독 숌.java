@@ -7,14 +7,13 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
 
-        int start = -1, cnt = 0;
-        String num = "666";
+        int cnt = 1, num = 666;
         while (cnt != N) {
-            start++;
-            if (String.valueOf(start).contains(num)) {
+            num++;
+            if (String.valueOf(num).contains("666")) {
                 cnt++;
             }
         }
-        System.out.println(start);
+        System.out.println(num);
     }
 }
