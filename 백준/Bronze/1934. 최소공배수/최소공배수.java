@@ -11,24 +11,25 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
 
-
         for (int i = 0; i < T; i++) {
             st = new StringTokenizer(br.readLine());
-            int gcd = 1, lcm;
-
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
-
-            for (int j = Math.min(A, B); j >= 1; j--) {
-                if ((A % j == 0) && (B % j == 0)) {
-                    gcd *= j;
-                    A /= j;
-                    B /= j;
-                }
-            }
-            lcm = gcd * A * B;
-            sb.append(lcm).append("\n");
+            sb.append(getLcm(A, B)).append("\n");
         }
         System.out.print(sb);
+    }
+
+    private static int getGcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    private static int getLcm(int a, int b) {
+        return (a / getGcd(a, b)) * b;
     }
 }
