@@ -3,22 +3,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
-        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> arr = new ArrayList<>();
         for (int i = 0; i < N; i++) {
-            list.add(Integer.parseInt(br.readLine()));
+            arr.add(Integer.parseInt(br.readLine()));
         }
-        Collections.sort(list);
-
-        for (int i : list) {
-            sb.append(i).append("\n");
-        }
+        Collections.sort(arr);
+        for (int asc : arr)
+            sb.append(asc).append("\n");
         System.out.println(sb);
     }
 }
