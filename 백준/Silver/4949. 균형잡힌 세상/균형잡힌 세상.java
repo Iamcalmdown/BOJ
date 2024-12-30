@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -19,29 +18,54 @@ public class Main {
     }
 
     public static String solve(String s) {
-        Stack<Character> stack = new Stack<>();
-
-        for (int i = 0; i < s.length(); i++) {
-
-            char c = s.charAt(i);
-
+//        Stack<Character> stack = new Stack<>();
+//
+//        for (int i = 0; i < s.length(); i++) {
+//
+//            char c = s.charAt(i);
+//
+//            if (c == '(' || c == '[') {
+//                stack.push(c);
+//            } else if (c == ')') {
+//                if (stack.empty() || stack.peek() != '(') {
+//                    return "no";
+//                } else {
+//                    stack.pop();
+//                }
+//            } else if (c == ']') {
+//                if (stack.empty() || stack.peek() != '[') {
+//                    return "no";
+//                } else {
+//                    stack.pop();
+//                }
+//            }
+//        }
+//        if (stack.empty()) {
+//            return "yes";
+//        } else {
+//            return "no";
+//        }
+        int[] stack = new int[s.length()];
+        int size = 0;
+        for (char c : s.toCharArray()) {
             if (c == '(' || c == '[') {
-                stack.push(c);
+                stack[size] = c;
+                size++;
             } else if (c == ')') {
-                if (stack.empty() || stack.peek() != '(') {
+                if (size == 0 || stack[size - 1] != '(') {
                     return "no";
                 } else {
-                    stack.pop();
+                    size--;
                 }
             } else if (c == ']') {
-                if (stack.empty() || stack.peek() != '[') {
+                if (size == 0 || stack[size - 1] != '[') {
                     return "no";
                 } else {
-                    stack.pop();
+                    size--;
                 }
             }
         }
-        if (stack.empty()) {
+        if (size == 0) {
             return "yes";
         } else {
             return "no";
