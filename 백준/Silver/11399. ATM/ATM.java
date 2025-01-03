@@ -12,10 +12,11 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int[] arr = new int[N];
         for (int i = 0; i < N; i++) {
-            arr[i] += Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
         int min = 0;
+
         for (int i = 0; i < N; i++) {
             if (i > 0) {
                 arr[i] += arr[i - 1];
