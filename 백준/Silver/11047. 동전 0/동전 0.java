@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        StringBuilder sb = new StringBuilder();
 
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
@@ -16,9 +15,9 @@ public class Main {
             coin[i] = Integer.parseInt(br.readLine());
         }
         int sum = 0;
-        for (int i = 0; i < N; i++) {
-            sum += K / coin[i];
-            K %= coin[i];
+        for (int num : coin) {
+            sum += K / num;
+            K %= num;
         }
         System.out.print(sum);
     }
