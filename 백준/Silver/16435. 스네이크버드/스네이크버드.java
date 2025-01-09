@@ -22,6 +22,8 @@ public class Main {
         for (int i : fruit) {
             if (L >= i) {
                 L++;
+            } else {
+                break;
             }
         }
         System.out.println(L);
