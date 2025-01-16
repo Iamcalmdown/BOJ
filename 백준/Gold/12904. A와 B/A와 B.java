@@ -12,7 +12,7 @@ public class Main {
             StringBuilder sb = new StringBuilder();
             if (T.charAt(T.length() - 1) == 'A') {
                 T = T.substring(0, T.length() - 1);
-            } else if (T.charAt(T.length() - 1) == 'B') {
+            } else {
                 T = T.substring(0, T.length() - 1);
                 T = sb.append(T).reverse().toString();
             }
