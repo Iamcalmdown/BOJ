@@ -8,21 +8,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr = new int[N];
+        int[] peo = new int[N];
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            peo[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr);
-        int min = 0;
+        Arrays.sort(peo);
+        int sum = 0;
 
         for (int i = 0; i < N; i++) {
-            if (i > 0) {
-                arr[i] += arr[i - 1];
-            }
-            min += arr[i];
+            sum += peo[i] * (N - i);
         }
-        System.out.print(min);
+        System.out.println(sum);
     }
 }
